@@ -1,0 +1,15 @@
+datasources:
+  my-vertica:
+    driver: vertica
+    parameters:
+      address: vertica.example.com:5433
+      username: dbadmin
+      password: mypass
+      database: default
+  my-clickhouse:
+    driver: clickhouse
+    parameters:
+      address: vertica.example.com:8123
+      username: default
+      password: mypass
+      database: default
