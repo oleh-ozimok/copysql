@@ -38,3 +38,10 @@ datasources:
 copysql my-vertica my-clickhouse default.my_table -c=config.yaml -q="SELECT * FROM default.my_table"
 
 ```
+
+## Run in Docker
+```
+
+docker run --rm -v /path/to/config.yaml:/config.yaml olegozimok/copysql my-vertica my-clickhouse default.my_table -c=/config.yaml -q="SELECT * FROM default.my_table"
+
+```
