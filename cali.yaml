@@ -28,10 +28,11 @@ data:
           "datastore_type": "kubernetes",
           "nodename": "__KUBERNETES_NODE_NAME__",
           "mtu": 1500,
-          "ipam": {
-            "type": "host-local",
-            "subnet": "usePodCidr"
-          },
+      "ipam": {
+        "type": "calico-ipam",
+        "assign_ipv4": "true",
+        "ipv4_pools": ["10.233.64.0/18"]
+      },
           "policy": {
             "type": "k8s"
           },
