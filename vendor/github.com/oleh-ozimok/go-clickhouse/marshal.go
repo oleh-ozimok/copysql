@@ -5,11 +5,18 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
+	"time"
 )
 
+func escape(s string) string {
+	s = strings.Replace(s, `\`, `\\`, -1)
+	s = strings.Replace(s, `'`, `\'`, -1)
+	return s
+}
+
 func unescape(s string) string {
-	s = strings.Replace(s, "\\\\", "\\", -1)
-	s = strings.Replace(s, "\\'", "'", -1)
+	s = strings.Replace(s, `\\`, `\`, -1)
+	s = strings.Replace(s, `\'`, `'`, -1)
 	return s
 }
 
@@ -50,6 +57,8 @@ func unmarshal(value interface{}, data string) (err error) {
 		*v = m.(float64)
 	case *string:
 		*v = unescape(data)
+	case *time.Time:
+		*v, err = time.ParseInLocation("2006-01-02 15:04:05", data, time.UTC)
 	case *[]int:
 		if !isArray(data) {
 			//noinspection GoPlaceholderCount
@@ -150,13 +159,26 @@ func marshal(value interface{}) string {
 		}
 		return "[" + strings.Join(res, ",") + "]"
 	}
+	if t := reflect.TypeOf(value); t.Kind() == reflect.Struct && strings.HasSuffix(t.String(), "Func") {
+		return fmt.Sprintf("%s(%v)", value.(Func).Name, marshal(value.(Func).Args))
+	}
 	switch v := value.(type) {
 	case string:
-		return fmt.Sprintf("'%s'", strings.Replace(v, "'", "\\'", -1))
+		return fmt.Sprintf("'%s'", escape(v))
 	case int, int8, int16, int32, int64,
 		uint, uint8, uint16, uint32, uint64,
 		float32, float64:
 		return fmt.Sprintf("%v", v)
+	//https://clickhouse.yandex/reference_en.html#Boolean values
+	case bool:
+		if value.(bool) {
+			return "1"
+		}
+		return "0"
+	//Convert time to Date type https://clickhouse.yandex/reference_en.html#Date
+	case time.Time:
+		return value.(time.Time).Format("2006-01-02")
 	}
+
 	return "''"
 }
