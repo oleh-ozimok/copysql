@@ -2,30 +2,12 @@ package clickhouse
 
 import (
 	"errors"
-	"io"
 	"strings"
 )
 
-type External struct {
-	Name      string
-	Structure string
-	Data      []byte
-}
-
-type Func struct {
-	Name string
-	Args interface{}
-}
-
 type Query struct {
-	Stmt      string
-	args      []interface{}
-	externals []External
-	body      io.Reader
-}
-
-func (q *Query) AddExternal(name string, structure string, data []byte) {
-	q.externals = append(q.externals, External{Name: name, Structure: structure, Data: data})
+	Stmt string
+	args []interface{}
 }
 
 func (q Query) Iter(conn *Conn) *Iter {

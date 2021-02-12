@@ -5,7 +5,7 @@ import (
 	"sync"
 )
 
-type PingErrorFunc func(conn *Conn, err error)
+type PingErrorFunc func(*Conn)
 
 type Cluster struct {
 	conn   []*Conn
@@ -51,9 +51,7 @@ func (c *Cluster) Check() {
 		if err == nil {
 			res = append(res, conn)
 		} else {
-			if c.fail != nil {
-				c.fail(conn, err)
-			}
+			c.fail(conn)
 		}
 	}
 
