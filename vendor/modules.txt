@@ -1,11 +1,6 @@
 # github.com/inconshreveable/mousetrap v1.0.0
 ## explicit
 github.com/inconshreveable/mousetrap
-# github.com/lib/pq v1.9.0
-## explicit
-github.com/lib/pq
-github.com/lib/pq/oid
-github.com/lib/pq/scram
 # github.com/mitchellh/ioprogress v0.0.0-20180201004757-6a23b12fa88e
 ## explicit
 github.com/mitchellh/ioprogress
@@ -26,6 +21,14 @@ github.com/spf13/cobra
 github.com/spf13/pflag
 # github.com/stretchr/testify v1.7.0
 ## explicit
+# github.com/vertica/vertica-sql-go v1.1.1
+## explicit
+github.com/vertica/vertica-sql-go
+github.com/vertica/vertica-sql-go/common
+github.com/vertica/vertica-sql-go/logger
+github.com/vertica/vertica-sql-go/msgs
+github.com/vertica/vertica-sql-go/parse
+github.com/vertica/vertica-sql-go/rowcache
 # golang.org/x/net v0.0.0-20171129192339-a8b929477797
 ## explicit
 golang.org/x/net/context
