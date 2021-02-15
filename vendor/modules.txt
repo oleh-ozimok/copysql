@@ -1,20 +1,11 @@
 # github.com/ClickHouse/clickhouse-go v1.4.3
 ## explicit
-github.com/ClickHouse/clickhouse-go
-github.com/ClickHouse/clickhouse-go/lib/binary
-github.com/ClickHouse/clickhouse-go/lib/cityhash102
-github.com/ClickHouse/clickhouse-go/lib/column
-github.com/ClickHouse/clickhouse-go/lib/data
-github.com/ClickHouse/clickhouse-go/lib/leakypool
-github.com/ClickHouse/clickhouse-go/lib/lz4
-github.com/ClickHouse/clickhouse-go/lib/protocol
-github.com/ClickHouse/clickhouse-go/lib/types
-github.com/ClickHouse/clickhouse-go/lib/writebuffer
-# github.com/cloudflare/golz4 v0.0.0-20150217214814-ef862a3cdc58
-github.com/cloudflare/golz4
 # github.com/inconshreveable/mousetrap v1.0.0
 ## explicit
 github.com/inconshreveable/mousetrap
+# github.com/mailru/go-clickhouse v1.3.0
+## explicit
+github.com/mailru/go-clickhouse
 # github.com/mitchellh/ioprogress v0.0.0-20180201004757-6a23b12fa88e
 ## explicit
 github.com/mitchellh/ioprogress
@@ -27,6 +18,8 @@ github.com/oleh-ozimok/go-clickhouse
 # github.com/pkg/errors v0.8.0
 ## explicit
 github.com/pkg/errors
+# github.com/satori/go.uuid v1.1.0
+github.com/satori/go.uuid
 # github.com/spf13/cobra v0.0.1
 ## explicit
 github.com/spf13/cobra

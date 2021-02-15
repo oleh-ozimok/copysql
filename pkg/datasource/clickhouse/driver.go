@@ -8,7 +8,7 @@ import (
 
 	"github.com/oleh-ozimok/copysql/pkg/datasource"
 
-	_ "github.com/ClickHouse/clickhouse-go"
+	_ "github.com/mailru/go-clickhouse"
 	"github.com/pkg/errors"
 )
 

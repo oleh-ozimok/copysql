@@ -3,8 +3,8 @@ module github.com/oleh-ozimok/copysql
 go 1.15
 
 require (
-	github.com/ClickHouse/clickhouse-go v1.4.3
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/mailru/go-clickhouse v1.3.0
 	github.com/mitchellh/ioprogress v0.0.0-20180201004757-6a23b12fa88e
 	github.com/mitchellh/mapstructure v0.0.0-20171017171808-06020f85339e
 	github.com/oleh-ozimok/go-clickhouse v1.0.2-0.20180204173030-659d4784e62b
