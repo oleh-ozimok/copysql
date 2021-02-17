@@ -80,8 +80,8 @@ func main() {
 
 			progressReader := &ioprogress.Reader{
 				Reader: pipeReader,
-				DrawFunc: ioprogress.DrawTerminalf(os.Stdout, func(progress int64, _ int64) string {
-					return fmt.Sprintf("transfered %s | %s", ioprogress.ByteUnitStr(progress), time.Since(copyStart))
+				DrawFunc: ioprogress.DrawTerminalf(os.Stdout, func(progress int64, total int64) string {
+					return fmt.Sprintf("transfered %s | %s", ioprogress.DrawTextFormatBytes(progress, total), time.Since(copyStart))
 				}),
 			}
 

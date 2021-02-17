@@ -6,9 +6,10 @@ import (
 	"io"
 
 	"github.com/mitchellh/mapstructure"
+
 	"github.com/oleh-ozimok/copysql/pkg/datasource"
 
-	_ "github.com/lib/pq"
+	_ "github.com/vertica/vertica-sql-go"
 )
 
 const driverName = "vertica"
@@ -47,7 +48,7 @@ func FromParameters(parameters map[string]interface{}) (datasource.Driver, error
 
 func New(params DriverParameters) *Driver {
 	return &Driver{
-		dsn: "postgres://" + params.Username + ":" + params.Password + "@" + params.Address + "/" + params.Database + "?sslmode=disable",
+		dsn: driverName + "://" + params.Username + ":" + params.Password + "@" + params.Address + "/" + params.Database + "?sslmode=disable",
 	}
 }
 

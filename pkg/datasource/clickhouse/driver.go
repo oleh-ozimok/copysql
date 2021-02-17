@@ -4,8 +4,11 @@ import (
 	"io"
 
 	"github.com/mitchellh/mapstructure"
-	"github.com/oleh-ozimok/copysql/pkg/datasource"
 	"github.com/oleh-ozimok/go-clickhouse"
+
+	"github.com/oleh-ozimok/copysql/pkg/datasource"
+
+	_ "github.com/mailru/go-clickhouse"
 	"github.com/pkg/errors"
 )
 
